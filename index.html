@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digitalizarea Romsilva | Propunere Tehnică ISR</title>
+    <style>
+        :root {
+            --bg: #e9e9e7;
+            --paper: #e9e9e7;
+            --ink: #111111;
+            --muted: #4f4f4f;
+            --line: #b7b7b2;
+            --accent: #ef3b5d;
+            --forest: #173f31;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: Arial, Helvetica, sans-serif; background: var(--bg); color: var(--ink); padding: 16px; }
+        .deck { max-width: 1600px; margin: 0 auto; display: grid; gap: 16px; }
+        
+        .slide { 
+            background: var(--paper); 
+            min-height: 900px; 
+            aspect-ratio: 16/9;
+            display: grid; 
+            grid-template-rows: auto 1fr auto; 
+            border: 1px solid #d6d6d1; 
+            padding: 28px 34px 18px;
+            position: relative;
+            overflow: hidden; 
+        }
+
+        /* HEADER */
+        .header { display: flex; justify-content: space-between; align-items: center; z-index: 5; }
+        .logo-strip { display: flex; gap: 15px; align-items: center; }
+        .logo-tag { border: 1px solid var(--line); padding: 5px 12px; font-size: 11px; font-weight: 900; text-transform: uppercase; display: flex; align-items: center; gap: 8px; }
+        .logo-tag span { width: 10px; height: 10px; background: var(--accent); border-radius: 2px; }
+        .rule { height: 1px; background: var(--line); flex: 1; margin: 0 20px; }
+        .page-num { font-size: 12px; font-weight: 700; }
+
+        /* GRID: 35% TEXT | 65% MEDIA */
+        .main-grid { display: grid; grid-template-columns: 35% 65%; gap: 30px; height: 100%; min-height: 0; align-items: stretch; margin-top: 10px; }
+        .content { display: flex; flex-direction: column; gap: 12px; overflow-y: auto; }
+
+        /* MEDIA PANEL - MAXIMIZED */
+        .media-box { 
+            border: 1px solid #cbcbc6; 
+            background: #000; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            height: 100%;
+            width: 100%;
+            position: relative;
+        }
+        .media-box img { width: 100%; height: 100%; object-fit: contain; }
+        
+        /* Vimeo Responsive Container */
+        .vimeo-wrapper { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+
+        /* TYPOGRAPHY */
+        h1 { font-size: 42px; line-height: 0.95; font-weight: 900; letter-spacing: -0.05em; }
+        h2 { font-size: 26px; font-weight: 900; text-transform: uppercase; }
+        .hl { background: var(--accent); color: #fff; padding: 2px 10px; display: inline-block; }
+        .lead { font-size: 16px; font-weight: 700; color: #222; line-height: 1.3; }
+        .card { background: #f1f1ef; border: 1px solid #cbcbc6; padding: 12px; border-left: 5px solid var(--accent); font-size: 13px; line-height: 1.4; }
+        
+        .table { width: 100%; border-collapse: collapse; font-size: 12px; margin-top: 5px; }
+        .table th, .table td { padding: 8px; border: 1px solid var(--line); text-align: left; }
+        .table th { background: #ececea; text-transform: uppercase; font-size: 9px; letter-spacing: 0.5px; }
+
+        .footer { display: flex; justify-content: space-between; padding-top: 10px; font-size: 11px; font-weight: 700; text-transform: uppercase; border-top: 1px solid var(--line); color: var(--muted); }
+
+        .final { 
+            background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('image_50.png'); 
+            background-size: cover; background-position: center; color: #fff; 
+            display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; border: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="deck">
+    <section class="slide">
+        <div class="header">
+            <div class="logo-strip">
+                <div class="logo-tag"><span></span>SKYLINE</div>
+                <div class="logo-tag"><span></span>VODAFONE BUSINESS</div>
+                <div class="logo-tag" style="background:var(--forest); color:white; border:none;">ROMSILVA</div>
+            </div>
+            <div class="rule"></div><div class="page-num">01</div>
+        </div>
+        <div class="main-grid">
+            <div class="content">
+                <h1>Digitalizarea Geospațială a Fondului Forestier</h1>
+                <p class="lead" style="margin-top: 10px;">Propunere de serviciu integrat pentru captură aeriană, procesare și livrare de date geospațiale pentru Romsilva.</p>
+                <div class="card" style="margin-top: 10px;">
+                    <strong>PROIECT SMIS 348488</strong><br><br>
+                    <strong>Pachet tehnic propus:</strong><br>
+                    • captură aeriană zone extinse<br>
+                    • date LiDAR (modele topografice & canopy)<br>
+                    • imagini RGB High-Res & Multispectrale<br>
+                    • analiză geospațială multi-temporală
+                </div>
+                <p style="font-size:12px; color:var(--muted); margin-top: 10px;">Digitalizarea și actualizarea bazei de date forestiere pentru aproximativ 3.1 milioane hectare.</p>
+            </div>
+            <div class="media-box"><img src="image_50.png"></div>
+        </div>
+        <div class="footer"><span>Proprietate Skyline & Vodafone</span><span>Propunere de digitalizare geospațială</span></div>
+    </section>
+
+    <section class="slide">
+        <div class="header"><div class="logo-strip"><div class="logo-tag">Infrastructure</div></div><div class="rule"></div><div class="page-num">02</div></div>
+        <div class="main-grid">
+            <div class="content">
+                <h2><span class="hl">DATA</span> Arhitectura de Achiziție Date</h2>
+                <table class="table" style="margin-top: 15px;">
+                    <thead><tr><th>Strat operațional</th><th>Specificații</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Baseline regional</strong></td><td>ortofotoplan GSD 3–5 cm, Stereo 70</td></tr>
+                        <tr><td><strong>Model topografic</strong></td><td>DTM / DSM / CHM, LiDAR >20 pts/mp</td></tr>
+                        <tr><td><strong>Survey de detaliu</strong></td><td>parcele, drumuri forestiere, pepiniere</td></tr>
+                        <tr><td><strong>Output GIS</strong></td><td>GeoTIFF, LAS / LAZ, SHP, GeoJSON</td></tr>
+                    </tbody>
+                </table>
+                <div class="card" style="margin-top: 15px;">Captură incrementală: baseline de suprafață completat cu survey-uri țintite de înaltă rezoluție.</div>
+            </div>
+            <div class="media-box">
+                <div class="vimeo-wrapper">
+                    <iframe src="https://player.vimeo.com/video/1172152356?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;loop=1&amp;background=1" frameborder="0" allow="autoplay; fullscreen" style="width:100%;height:100%;"></iframe>
+                </div>
+            </div>
+        </div>
+        <div class="footer"><span>Date geospațiale standardizate pentru integrare GIS</span></div>
+    </section>
+
+    <section class="slide">
+        <div class="header"><div class="logo-strip"><div class="logo-tag">AI Analytics</div></div><div class="rule"></div><div class="page-num">03</div></div>
+        <div class="main-grid">
+            <div class="content">
+                <h2><span class="hl">AI</span> Monitorizarea Stării Vegetației</h2>
+                <p class="lead" style="margin-top: 10px;">Analiza multispectrală pentru evaluarea sănătății canopy-ului și identificarea stresului vegetativ.</p>
+                <div class="card" style="margin-top: 10px;">
+                    <strong>Indicatori:</strong> NDVI, EVI, Red-Edge<br><br>
+                    <strong>Aplicații:</strong> evaluarea vigorii, identificarea zonelor afectate, monitorizarea regenerării.
+                </div>
+                <table class="table" style="margin-top: 10px;">
+                    <thead><tr><th>Indicator</th><th>Rol</th></tr></thead>
+                    <tbody>
+                        <tr><td>NDVI / EVI</td><td>semnalarea anomaliilor de vegetație</td></tr>
+                        <tr><td>Stres vegetativ</td><td>prioritizarea verificărilor în teren</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="media-box">
+                <div class="vimeo-wrapper">
+                    <iframe src="https://player.vimeo.com/video/1172149580?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;loop=1&amp;background=1" frameborder="0" allow="autoplay; fullscreen" style="width:100%;height:100%;"></iframe>
+                </div>
+            </div>
+        </div>
+        <div class="footer"><span>Analiză multispectrală pentru evaluare și prioritizare</span></div>
+    </section>
+
+    <section class="slide">
+        <div class="header"><div class="logo-strip"><div class="logo-tag">Compliance</div></div><div class="rule"></div><div class="page-num">04</div></div>
+        <div class="main-grid">
+            <div class="content">
+                <h2><span class="hl">AUDIT</span> Trasabilitate și Audit Multi-Temporal</h2>
+                <div class="card" style="margin-top: 15px;">
+                    <strong>Change Detection:</strong> Identificarea automată a modificărilor de suprafață prin compararea seturilor de date timestamped.
+                </div>
+                <table class="table" style="margin-top: 15px;">
+                    <thead><tr><th>Parametru</th><th>Livrabil</th></tr></thead>
+                    <tbody>
+                        <tr><td>Ortofoto A/B</td><td>comparație vizuală documentată</td></tr>
+                        <tr><td>Vectori schimbare</td><td>GeoJSON / SHP (Stereo 70)</td></tr>
+                        <tr><td>Statistici</td><td>suprafețe modificate pe parcelă</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="media-box">
+                <img src="https://esri-naturalresources.s3.us-east-1.amazonaws.com/hub-resources/Forestry/Hub/standedits.gif">
+            </div>
+        </div>
+        <div class="footer"><span>Change detection și trasabilitate geospațială</span></div>
+    </section>
+
+    <section class="slide">
+        <div class="header"><div class="logo-strip"><div class="logo-tag">ISR Security</div></div><div class="rule"></div><div class="page-num">05</div></div>
+        <div class="main-grid">
+            <div class="content">
+                <h2><span class="hl">RF</span> RF Spectrum Awareness</h2>
+                <p class="lead" style="margin-top: 10px;">Monitorizarea spectrului radio pentru identificarea dispozitivelor wireless în zone izolate.</p>
+                <div class="card" style="margin-top: 10px;">
+                    Analiza pasivă detectează semnale <strong>Wi-Fi și Bluetooth</strong> pentru estimarea prezenței umane sau a echipamentelor în teren.
+                </div>
+                <table class="table" style="margin-top: 10px;">
+                    <thead><tr><th>Aplicație</th><th>Utilizare</th></tr></thead>
+                    <tbody>
+                        <tr><td>Search & Rescue</td><td>localizare telefoane persoane rătăcite</td></tr>
+                        <tr><td>Monitorizare</td><td>detecție activitate în zone protejate</td></tr>
+                    </tbody>
+                </table>
+                <p style="font-size:11px; color:var(--accent); font-weight:bold; margin-top: 10px;">Concept tehnologic / Program pilot dedicat.</p>
+            </div>
+            <div class="media-box"><img src="image_53.png"></div>
+        </div>
+        <div class="footer"><span>RF Spectrum Awareness – Under Development</span></div>
+    </section>
+
+    <section class="slide">
+        <div class="header"><div class="logo-strip"><div class="logo-tag">Roadmap</div></div><div class="rule"></div><div class="page-num">06</div></div>
+        <div class="main-grid">
+            <div class="content">
+                <h2><span class="hl">POC</span> Program Pilot (Proof of Concept)</h2>
+                <div class="card" style="margin-top: 15px;">
+                    <strong>Obiectiv:</strong> Validarea fluxului de captură și integrare GIS.
+                </div>
+                <table class="table" style="margin-top: 15px;">
+                    <thead><tr><th>Livrabile PoC</th><th>Conținut</th></tr></thead>
+                    <tbody>
+                        <tr><td>Ortofotoplan</td><td>imagini ortorectificate zone pilot</td></tr>
+                        <tr><td>Modele 3D</td><td>DTM / DSM / LiDAR Cloud</td></tr>
+                        <tr><td>Schimbări</td><td>vectori GIS analiză multi-temporală</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="media-box">
+                <div class="vimeo-wrapper">
+                    <iframe src="https://player.vimeo.com/video/1172149580?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;loop=1&amp;background=1" frameborder="0" allow="autoplay; fullscreen" style="width:100%;height:100%;"></iframe>
+                </div>
+            </div>
+        </div>
+        <div class="footer"><span>Proof of Concept pentru captură și integrare geospațială</span></div>
+    </section>
+
+    <section class="slide final">
+        <h1 style="font-size:55px; color:#fff;"><span class="hl">PARTENERIAT</span> PENTRU DIGITALIZARE</h1>
+        <p style="font-size:22px; max-width:850px; margin-bottom:40px; font-weight: 300;">VODAFONE BUSINESS | SKYLINE DRONES | ROMSILVA</p>
+        <div class="logo-strip">
+            <div class="logo-tag" style="border-color:#fff; color:#fff">SKYLINE</div>
+            <div class="logo-tag" style="border-color:#fff; color:#fff">VODAFONE BUSINESS</div>
+            <div class="logo-tag" style="border-color:#fff; color:#fff">ROMSILVA</div>
+        </div>
+    </section>
+</div>
+
+</body>
+</html>
