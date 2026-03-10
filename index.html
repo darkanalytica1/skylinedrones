@@ -15,8 +15,22 @@
             --forest: #173f31;
         }
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: Arial, Helvetica, sans-serif; background: var(--bg); color: var(--ink); padding: 16px; }
-        .deck { max-width: 1600px; margin: 0 auto; display: grid; gap: 16px; }
+        body { 
+            font-family: Arial, Helvetica, sans-serif; 
+            background: var(--bg); 
+            color: var(--ink); 
+            padding: 16px; 
+            /* Smooth snapping behavior */
+            scroll-behavior: smooth;
+        }
+        .deck { 
+            max-width: 1600px; 
+            margin: 0 auto; 
+            display: grid; 
+            gap: 16px; 
+            /* Added Snapping */
+            scroll-snap-type: y mandatory;
+        }
         
         .slide { 
             background: var(--paper); 
@@ -28,49 +42,73 @@
             padding: 28px 34px 18px;
             position: relative;
             overflow: hidden; 
+            /* Added Snapping */
+            scroll-snap-align: start;
+            scroll-snap-stop: always;
         }
 
+        /* Rest of your styles */
         .header { display: flex; justify-content: space-between; align-items: center; z-index: 5; }
         .logo-strip { display: flex; gap: 15px; align-items: center; }
         .logo-tag { border: 1px solid var(--line); padding: 5px 12px; font-size: 11px; font-weight: 900; text-transform: uppercase; display: flex; align-items: center; gap: 8px; }
         .logo-tag span { width: 10px; height: 10px; background: var(--accent); border-radius: 2px; }
         .rule { height: 1px; background: var(--line); flex: 1; margin: 0 20px; }
         .page-num { font-size: 12px; font-weight: 700; }
-
         .main-grid { display: grid; grid-template-columns: 35% 65%; gap: 30px; height: 100%; min-height: 0; align-items: stretch; margin-top: 10px; }
         .content { display: flex; flex-direction: column; gap: 12px; overflow-y: auto; }
-
-        .media-box { 
-            border: 1px solid #cbcbc6; 
-            background: #000; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            height: 100%;
-            width: 100%;
-            position: relative;
-        }
+        .media-box { border: 1px solid #cbcbc6; background: #000; display: flex; align-items: center; justify-content: center; height: 100%; width: 100%; position: relative; }
         .media-box img, .media-box video { width: 100%; height: 100%; object-fit: contain; }
         .vimeo-wrapper { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
-
         h1 { font-size: 42px; line-height: 0.95; font-weight: 900; letter-spacing: -0.05em; }
         h2 { font-size: 26px; font-weight: 900; text-transform: uppercase; }
         .hl { background: var(--accent); color: #fff; padding: 2px 10px; display: inline-block; }
         .lead { font-size: 16px; font-weight: 700; color: #222; line-height: 1.3; }
         .card { background: #f1f1ef; border: 1px solid #cbcbc6; padding: 12px; border-left: 5px solid var(--accent); font-size: 13px; line-height: 1.4; }
-        
         .table { width: 100%; border-collapse: collapse; font-size: 12px; margin-top: 5px; }
         .table th, .table td { padding: 8px; border: 1px solid var(--line); text-align: left; }
         .table th { background: #ececea; text-transform: uppercase; font-size: 9px; letter-spacing: 0.5px; }
-
         .footer { display: flex; justify-content: space-between; padding-top: 10px; font-size: 11px; font-weight: 700; text-transform: uppercase; border-top: 1px solid var(--line); color: var(--muted); }
+    .final { background-image: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.5)), url('image_50.png'); background-size: cover; background-position: center; color: #fff; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; border: none; scroll-snap-align: start; }
 
-        .final { 
-            background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('image_50.png'); 
-            background-size: cover; background-position: center; color: #fff; 
-            display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; border: none;
+        /* ADD THIS SHIT RIGHT HERE */
+        ::-webkit-scrollbar { display: none; }
+        html, body { 
+            scrollbar-width: none; 
+            -ms-overflow-style: none; 
+            overflow-x: hidden;
+        }
+        .deck {
+            scrollbar-width: none;
+            -ms-overflow-style: none;
         }
     </style>
+
+    <script>
+        // Keyboard Navigation Logic
+        window.addEventListener('keydown', (e) => {
+            const gap = 16;
+            const scrollStep = window.innerHeight + gap;
+
+            // Space or ArrowDown = Next
+            if (e.code === 'Space' || e.code === 'ArrowDown') {
+                e.preventDefault();
+                window.scrollBy({ top: scrollStep, behavior: 'smooth' });
+            }
+            // ArrowUp = Previous
+            if (e.code === 'ArrowUp') {
+                e.preventDefault();
+                window.scrollBy({ top: -scrollStep, behavior: 'smooth' });
+            }
+            // 'F' Key = Fullscreen
+            if (e.key.toLowerCase() === 'f') {
+                if (!document.fullscreenElement) {
+                    document.documentElement.requestFullscreen();
+                } else if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                }
+            }
+        });
+    </script>
 </head>
 <body>
 
@@ -263,4 +301,5 @@
 
 </body>
 </html>
+
 
